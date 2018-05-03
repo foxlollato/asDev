@@ -1,0 +1,12 @@
+#! /bin/bash
+
+# binaries output directory (objects and executables are placed there)
+OUTDIR=bin
+[ -d $OUTDIR ] || mkdir $OUTDIR
+
+
+as $1.s -o $OUTDIR/$1.o \
+	&& ld $OUTDIR/$1.o -o $OUTDIR/$1 \
+	&& $OUTDIR/$1
+
+
